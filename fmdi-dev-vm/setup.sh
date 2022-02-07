@@ -4,13 +4,7 @@
 # docker from docker repository
 sudo apt-get remove docker docker.io containerd runc 
 sudo apt-get update
-sudo apt-get install -y \
-    ca-certificates \
-    curl \
-
-
-    gnupg \
-    lsb-release
+sudo apt-get install -y curl gnupg lsb-release
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor --batch --yes -o /usr/share/keyrings/docker-archive-keyring.gpg
 
@@ -30,7 +24,8 @@ sudo curl -SL https://github.com/docker/compose/releases/download/v2.2.3/docker-
 sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
 
 # git 
-sudo apt-get install -y git
+sudo apt-get install -y git 
+git --version
 
 # make git credentials storeable
 sudo apt-get install -y libsecret-1-0 libsecret-1-dev gcc make
