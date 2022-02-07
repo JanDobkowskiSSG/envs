@@ -1,4 +1,5 @@
 #!/bin/bash
+# this should be availabe at https://raw.githubusercontent.com/JanDobkowskiSSG/envs/master/fmdi-dev-vm/setup.sh
 
 # docker from docker repository
 sudo apt-get remove docker docker.io containerd runc 
@@ -6,6 +7,8 @@ sudo apt-get update
 sudo apt-get install -y \
     ca-certificates \
     curl \
+
+
     gnupg \
     lsb-release
 
@@ -17,11 +20,17 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docke
 sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
+sudo usermod -a -G docker dev
+newgrp docker 
+newgrp
+
 # docker-compose
 sudo mkdir -p /usr/local/lib/docker/cli-plugins
 sudo curl -SL https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64 -o /usr/local/lib/docker/cli-plugins/docker-compose
 sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
 
+# git 
+sudo apt-get install -y git
 
 # make git credentials storeable
 sudo apt-get install -y libsecret-1-0 libsecret-1-dev gcc make
@@ -33,5 +42,20 @@ git config --global credential.helper /usr/share/doc/git/contrib/credential/libs
 #vscode
 curl -L https://go.microsoft.com/fwlink/?LinkID=760868 > vscode.deb
 sudo apt install ./vscode.deb
+rm vscode.deb
+
+#go ext
+code 
 
 sudo apt-get install -y postgresql-client-13
+
+#golang
+sudo apt-get install -y golanggo v-1.17
+
+# Chromium
+sudo apt-get install -y chromium-browser
+
+mkdir ~/repo
+cd ~/repo
+
+
