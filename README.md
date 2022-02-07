@@ -1,0 +1,1 @@
+This is a repo of my environment setup/configuration scripts. There are no secrets here and I sincerely doubt if it should prove useful for anyone else... It's public only for my personal convenience.
