@@ -44,18 +44,19 @@ curl -L https://go.microsoft.com/fwlink/?LinkID=760868 > vscode.deb
 sudo apt install ./vscode.deb
 rm vscode.deb
 
+code --install-extension golang.go
+
 #go ext
 code 
 
 sudo apt-get install -y postgresql-client-13
 
 #golang
-sudo apt-get install -y golanggo v-1.17
+sudo apt-get install -y golang
 
 # Chromium
 sudo apt-get install -y chromium-browser
 
 mkdir ~/repo
 cd ~/repo
-
 
