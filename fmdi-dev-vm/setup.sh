@@ -1,6 +1,8 @@
 #!/bin/bash
 # this should be availabe at https://raw.githubusercontent.com/JanDobkowskiSSG/envs/master/fmdi-dev-vm/setup.sh
 
+set -x
+
 # docker from docker repository
 sudo apt-get remove docker docker.io containerd runc 
 sudo apt-get update
