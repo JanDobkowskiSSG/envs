@@ -3,6 +3,12 @@
 
 set -x
 
+# stop unattended upgrades not to interfere
+sudo systemctl stop unattended-upgrades
+
+# remove unattended upgrades - we're big boys aren't we we handle it ourselves
+sudo apt-get purge unattended-upgrades
+
 # docker from docker's own repository
 sudo apt-get remove docker docker.io containerd runc 
 sudo apt-get update
