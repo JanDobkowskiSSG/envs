@@ -15,10 +15,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docke
 
 sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
-
 sudo usermod -a -G docker dev
-newgrp docker 
-newgrp
 
 # docker-compose
 sudo mkdir -p /usr/local/lib/docker/cli-plugins
@@ -54,6 +51,4 @@ sudo apt-get install -y golang
 # Chromium
 sudo apt-get install -y chromium-browser
 
-mkdir ~/repo
-cd ~/repo
-
+echo "Finished. Remember to re-login to get docker execution privs."
