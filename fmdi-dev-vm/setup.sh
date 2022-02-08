@@ -3,7 +3,7 @@
 
 set -x
 
-# docker from docker repository
+# docker from docker's own repository
 sudo apt-get remove docker docker.io containerd runc 
 sudo apt-get update
 sudo apt-get install -y curl gnupg lsb-release
@@ -33,22 +33,28 @@ sudo make
 popd
 git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
 
+#golang
+sudo apt-get install -y golang
+
 #vscode
 curl -L https://go.microsoft.com/fwlink/?LinkID=760868 > vscode.deb
 sudo apt install ./vscode.deb
 rm vscode.deb
 
+#go ext
 code --install-extension golang.go
 
-#go ext
-code 
-
+#psql
 sudo apt-get install -y postgresql-client-13
-
-#golang
-sudo apt-get install -y golang
 
 # Chromium
 sudo apt-get install -y chromium-browser
+
+# Postman
+sudo snap install postman
+
+
+# Setup launcher icons
+gsettings set org.gnome.shell favorite-apps "['chromium_chromium.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop']"
 
 echo "Finished. Remember to re-login to get docker execution privs."
