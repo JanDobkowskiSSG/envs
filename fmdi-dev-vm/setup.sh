@@ -7,7 +7,7 @@ set -x
 sudo systemctl stop unattended-upgrades
 
 # remove unattended upgrades - we're big boys aren't we we handle it ourselves
-sudo apt-get purge unattended-upgrades
+sudo apt-get -y purge unattended-upgrades
 
 # docker from docker's own repository
 sudo apt-get remove docker docker.io containerd runc 
@@ -42,6 +42,15 @@ git config --global credential.helper /usr/share/doc/git/contrib/credential/libs
 #golang
 sudo apt-get install -y golang
 
+# vscode wants "godef" 
+go install -v github.com/rogpeppe/godef@latest
+
+# vscode wants "go-outline"
+go install -v github.com/ramya-rao-a/go-outline@latest
+
+# vscode wants gopls 
+go install -v golang.org/x/tools/gopls@latest
+
 #vscode
 curl -L https://go.microsoft.com/fwlink/?LinkID=760868 > vscode.deb
 sudo apt install ./vscode.deb
@@ -59,8 +68,12 @@ sudo apt-get install -y chromium-browser
 # Postman
 sudo snap install postman
 
-
 # Setup launcher icons
-gsettings set org.gnome.shell favorite-apps "['chromium_chromium.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop']"
+gsettings set org.gnome.shell favorite-apps "['chromium_chromium.desktop', 'postman_postman.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop']"
+
+mkdir ~/repos
+cd ~/repos
 
 echo "Finished. Remember to re-login to get docker execution privs."
+
+
